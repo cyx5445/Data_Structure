@@ -64,17 +64,3 @@
 //	return 0;
 //}
 
-int* twosum(int* nums, int size)
-{
-	int* a = nums;
-	printf("%d", *a);
-}
-
-int main()
-{
-	int arr1[5] = { 1, 3, 5 };
-	int sz = 3;
-	twosum(arr1, sz);
-
-	return 0;
-}

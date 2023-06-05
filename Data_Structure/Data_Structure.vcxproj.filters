@@ -13,13 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\线性表">
+      <UniqueIdentifier>{8d974f31-ef2d-4d8e-82ae-3b058f37b477}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="线性表_1.c">
-      <Filter>源文件</Filter>
+      <Filter>源文件\线性表</Filter>
+    </ClCompile>
+    <ClCompile Include="线性表_链式存储_1.cpp">
+      <Filter>源文件\线性表</Filter>
+    </ClCompile>
+    <ClCompile Include="静态链表_1.c">
+      <Filter>源文件\线性表</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -233,6 +233,32 @@ Status PrintList(LinkList* L, int len)
 	return OK;
 }
 
+/*有序集合并*/
+void MergeList(LinkList* La, LinkList* Lb, LinkList* Lc)
+{
+	LinkList pa, pb, pc;
+	pa = (*La)->next;
+	pb = (*Lb)->next;
+	pc = (*Lc)->next;
+	while (pa && pb)
+	{
+		if (pa->data.num <= pb->data.num)
+		{
+			pc->next = pa;
+			pc = pa;
+			pa = pa->next;
+		}
+		else
+		{
+			pc->next = pb;
+			pc = pb;
+			pb = pb->next;
+		}
+		pc->next = (pa ? pa : pb);
+		free(Lb);
+	}
+}
+
 int main()
 {
 	LinkList L{};

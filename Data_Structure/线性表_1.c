@@ -170,6 +170,18 @@ Status ListDelete(SqList* L, int pos)
 	return OK;
 }
 
+/*有序集合并*/
+//void MergeList(SqList La, SqList Lb, SqList* Lc)
+//{
+//	ElemType pa, pb, pc, pa_last, pb_last;
+//	pa = *(La.data);
+//	pb = *(Lb.data);
+//	Lc->length = La.length + Lb.length;
+//	Lc->data = (ElemType*)malloc(sizeof(ElemType) * MAX_SIZE);
+//	pc = *(Lc->data);
+//	
+//}
+
 int main()
 {
 	int i, res, e, Len, pos;

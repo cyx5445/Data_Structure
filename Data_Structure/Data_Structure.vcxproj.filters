@@ -16,6 +16,9 @@
     <Filter Include="源文件\线性表">
       <UniqueIdentifier>{8d974f31-ef2d-4d8e-82ae-3b058f37b477}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\栈与队列">
+      <UniqueIdentifier>{56c494a3-cbc2-4b07-af22-f88555c7daa6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
@@ -24,11 +27,26 @@
     <ClCompile Include="线性表_1.c">
       <Filter>源文件\线性表</Filter>
     </ClCompile>
-    <ClCompile Include="线性表_链式存储_1.cpp">
+    <ClCompile Include="线性表_链式存储_1.c">
       <Filter>源文件\线性表</Filter>
     </ClCompile>
     <ClCompile Include="静态链表_1.c">
       <Filter>源文件\线性表</Filter>
+    </ClCompile>
+    <ClCompile Include="循环链表_1.c">
+      <Filter>源文件\线性表</Filter>
+    </ClCompile>
+    <ClCompile Include="双向链表_1.c">
+      <Filter>源文件\线性表</Filter>
+    </ClCompile>
+    <ClCompile Include="default.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SqStack_1.c">
+      <Filter>源文件\栈与队列</Filter>
+    </ClCompile>
+    <ClCompile Include="SqDoubleStack.c">
+      <Filter>源文件\栈与队列</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

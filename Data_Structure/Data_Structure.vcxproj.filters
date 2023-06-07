@@ -19,6 +19,18 @@
     <Filter Include="源文件\栈与队列">
       <UniqueIdentifier>{56c494a3-cbc2-4b07-af22-f88555c7daa6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\栈与队列\Stack">
+      <UniqueIdentifier>{a9180f3c-bf1a-4099-ae31-09e8a22cc70f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\栈与队列\Queue">
+      <UniqueIdentifier>{031981d5-8378-414d-a72b-1fec848fca49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\串">
+      <UniqueIdentifier>{220169cd-869e-4976-8568-670823a0136d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\树">
+      <UniqueIdentifier>{b676a0a3-1f73-4995-a24d-637420769fdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
@@ -43,10 +55,37 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SqStack_1.c">
-      <Filter>源文件\栈与队列</Filter>
+      <Filter>源文件\栈与队列\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="逆波兰表示四则运算_未完成.c">
+      <Filter>源文件\栈与队列\Stack</Filter>
     </ClCompile>
     <ClCompile Include="SqDoubleStack.c">
-      <Filter>源文件\栈与队列</Filter>
+      <Filter>源文件\栈与队列\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion_1.c">
+      <Filter>源文件\栈与队列\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkStack_1.c">
+      <Filter>源文件\栈与队列\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="SqQueue_1.c">
+      <Filter>源文件\栈与队列\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="SqQueue_2.c">
+      <Filter>源文件\栈与队列\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkQueue_1.c">
+      <Filter>源文件\栈与队列\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="String_1.c">
+      <Filter>源文件\串</Filter>
+    </ClCompile>
+    <ClCompile Include="PTree_1.c">
+      <Filter>源文件\树</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTree_1.c">
+      <Filter>源文件\树</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

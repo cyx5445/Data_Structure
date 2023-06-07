@@ -84,7 +84,7 @@ int main()
 			Push(&S, e, stackNumber);
 			break;
 		case 2:
-			rintf("请选择要出栈（栈）：");
+			printf("请选择要出栈（栈）：");
 			scanf_s("%d", &stackNumber);
 			Pop(&S, &e, stackNumber);
 			printf("出栈元素为：%d\n", e);

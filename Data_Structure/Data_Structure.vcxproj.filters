@@ -51,7 +51,7 @@
     <ClCompile Include="双向链表_1.c">
       <Filter>源文件\线性表</Filter>
     </ClCompile>
-    <ClCompile Include="default.c">
+    <ClCompile Include="default.h">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SqStack_1.c">
@@ -85,6 +85,9 @@
       <Filter>源文件\树</Filter>
     </ClCompile>
     <ClCompile Include="BinaryTree_1.c">
+      <Filter>源文件\树</Filter>
+    </ClCompile>
+    <ClCompile Include="Threaded_Binary_Tree_1.c">
       <Filter>源文件\树</Filter>
     </ClCompile>
   </ItemGroup>

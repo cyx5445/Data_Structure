@@ -1,4 +1,4 @@
-#include "D:\Project\C\Data_Structure\Data_Structure\default.c"
+#include "default.h"
 
 /*
 Õ»µÄÁ´Ê½´æ´¢£ºÁ´Õ»

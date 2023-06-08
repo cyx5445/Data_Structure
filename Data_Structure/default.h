@@ -15,6 +15,6 @@
 
 typedef int ElemType;			/*int*/
 typedef int SElemType;			/*int*/
-typedef int TElemtype;			/*int*/
+typedef char TElemtype;			/*char*/
 
 typedef int Status;				/*int*/

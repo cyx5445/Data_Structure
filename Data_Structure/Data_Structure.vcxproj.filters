@@ -31,6 +31,9 @@
     <Filter Include="源文件\树">
       <UniqueIdentifier>{b676a0a3-1f73-4995-a24d-637420769fdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\图">
+      <UniqueIdentifier>{6b337872-c24d-4aae-bf71-5da38c34e1a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
@@ -50,9 +53,6 @@
     </ClCompile>
     <ClCompile Include="双向链表_1.c">
       <Filter>源文件\线性表</Filter>
-    </ClCompile>
-    <ClCompile Include="default.h">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SqStack_1.c">
       <Filter>源文件\栈与队列\Stack</Filter>
@@ -89,6 +89,15 @@
     </ClCompile>
     <ClCompile Include="Threaded_Binary_Tree_1.c">
       <Filter>源文件\树</Filter>
+    </ClCompile>
+    <ClCompile Include="HuffTree_1.c">
+      <Filter>源文件\树</Filter>
+    </ClCompile>
+    <ClCompile Include="AMGraph_1.c">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="default.h">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

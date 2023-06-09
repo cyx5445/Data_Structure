@@ -1,9 +1,2 @@
-﻿  default.h
-  Threaded_Binary_Tree_1.c
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(37,19): warning C4133: “=”: 从“BiThrTree”到“BithrNode *”的类型不兼容
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(40,24): warning C4133: “函数”: 从“BithrNode *”到“BiThrTree”的类型不兼容
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(70,32): warning C4133: “函数”: 从“BithrNode **”到“BiThrTree *”的类型不兼容
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(83,27): warning C4133: “=”: 从“BiThrTree”到“BithrNode *”的类型不兼容
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(91,22): warning C4133: “=”: 从“BiThrTree”到“BithrNode *”的类型不兼容
-D:\Project\C\Data_Structure\Data_Structure\Threaded_Binary_Tree_1.c(93,24): warning C4133: “=”: 从“BiThrTree”到“BithrNode *”的类型不兼容
+﻿  AMGraph_1.c
   Data_Structure.vcxproj -> D:\Project\C\Data_Structure\Data_Structure\Debug\Data_Structure.exe

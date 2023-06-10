@@ -99,5 +99,13 @@
     <ClCompile Include="default.h">
       <Filter>头文件</Filter>
     </ClCompile>
+    <ClCompile Include="ALGraph_1.c">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

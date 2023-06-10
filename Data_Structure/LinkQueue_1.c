@@ -3,7 +3,7 @@
 /*链式队列*/
 
 /*结点结构*/
-typedef struct QNpde
+typedef struct QNode
 {
 	ElemType data;
 	struct QNode* next;
@@ -71,13 +71,4 @@ Status GetHead(LinkQueue Q, ElemType* e)
 	QueuePtr p = Q.front->next;
 	*e = p->data;
 	return OK;
-}
-
-int main()
-{
-	LinkQueue Q;
-	InitLinkQueue(&Q);
-
-
-	return 0;
 }

@@ -9,6 +9,7 @@
 #define MAX_TREE_SIZE 100		/*树最大空间*/
 #define INFINITY 65535			/*代表无穷量∞*/
 #define MAXVEX 100				/*图 最大顶点数*/
+#define MAXEDGE 100				/*图 最大边数*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,4 +22,5 @@ typedef char TElemtype;			/*char*/
 typedef char VertexType;		/*图顶点类型(char)*/
 typedef int EdgeType;			/*图权值类型(int)*/
 
+typedef int boolean;			/*为布尔类型，值为FALSE或TRUE*/
 typedef int Status;				/*int*/

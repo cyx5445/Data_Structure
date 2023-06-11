@@ -48,6 +48,57 @@ Status InsertBST(BiTree* T, const int key)
 		return FALSE;
 }
 
+/*删除二叉排列树结点*/
+Status Delete(BiTree* p)
+{
+	BiTree q, s;
+	if ((*p)->rchild == NULL)		/*若右子树为空，则只需重接左子树*/
+	{
+		q = *p;
+		*p = (*p)->lchild;
+		free(q);
+	}
+	else if ((*p)->lchild == NULL)	/*若左子树为空*/
+	{
+		q = *p;
+		*p = (*p)->rchild;
+		free(q);
+	}
+	else
+	{								/*左右子树都不为空*/
+		q = *p;
+		s = (*p)->lchild;
+		while (s->rchild)			/*转左，然后向右到尽头，找到被删结点在中序遍历下的前驱*/
+		{
+			q = s;					/*q为s的上一个结点*/
+			s = s->rchild;
+		}
+		(*p)->data = s->data;		/*将s指向被删结点的前驱，用它的前驱代替被删结点*/
+		if (q != p)
+			q->rchild = s->lchild;	/*重接q的右子树*/
+		else
+			q->lchild = s->lchild;	/*重接q的左子树*/
+		free(s);
+	}
+	return TRUE;
+}
+
+/*二叉排列树删除结点*/
+Status DeleteBST(BiTree* T, int key)
+{
+	if (!*T)
+		return FALSE;
+	else
+	{
+		if (key == (*T)->data)		/*利用递归查找等于key的结点*/
+			return Delete(T);
+		else if (key < (*T)->data)
+			return DeleteBST(&(*T)->lchild, key);
+		else
+			return DeleteBST(&(*T)->rchild, key);
+	}
+}
+
 int main()
 {
 	int i;

@@ -3,6 +3,12 @@
 
 /*邻接矩阵表示图*/
 
+boolean visited[MAXVEX];							/*访问标志数组*/
+typedef int Patharc_D[MAXVEX];						/*最短路径下标的数组(Dijkstra)*/
+typedef int ShortPathTable_D[MAXVEX];				/*存储到各点最短路径的权值和(Dijkstra)*/
+typedef int Patharc_F[MAXVEX][MAXVEX];				/*最短路径下标的数组(Floyd)*/
+typedef int ShortPathTable_F[MAXVEX][MAXVEX];		/*存储到各点最短路径的权值和(Floyd)*/
+
 /*邻接矩阵（Adjacency Matrix Graph）*/
 typedef struct
 {
@@ -30,7 +36,7 @@ void CreateAMGraph(AMGraph* G)
 	//	scanf_s("%s", &G->vex[i], 20);
 	//}
 
-	G->numEdges = 15;
+	G->numEdges = 16;
 	G->numNodes = 9;
 
 	for (i = 0; i < G->numNodes; i++)
@@ -42,21 +48,42 @@ void CreateAMGraph(AMGraph* G)
 	}
 
 	//自定义邻接矩阵
-	G->arc[0][1] = 10;
-	G->arc[0][5] = 11;
-	G->arc[1][2] = 18;
-	G->arc[1][8] = 12;
-	G->arc[1][6] = 16;
-	G->arc[2][8] = 8;
-	G->arc[2][3] = 22;
-	G->arc[3][8] = 21;
-	G->arc[3][6] = 24;
-	G->arc[3][7] = 16;
-	G->arc[3][4] = 20;
-	G->arc[4][7] = 7;
-	G->arc[4][5] = 26;
-	G->arc[5][6] = 17;
-	G->arc[6][7] = 19;
+	//G->arc[0][1] = 10;
+	//G->arc[0][5] = 11;
+	//G->arc[1][2] = 18;
+	//G->arc[1][8] = 12;
+	//G->arc[1][6] = 16;
+	//G->arc[2][8] = 8;
+	//G->arc[2][3] = 22;
+	//G->arc[3][8] = 21;
+	//G->arc[3][6] = 24;
+	//G->arc[3][7] = 16;
+	//G->arc[3][4] = 20;
+	//G->arc[4][7] = 7;
+	//G->arc[4][5] = 26;
+	//G->arc[5][6] = 17;
+	//G->arc[6][7] = 19;
+
+	//最短路径用矩阵自定义权
+	G->arc[0][1] = 1;
+	G->arc[0][2] = 5;
+	G->arc[1][2] = 3;
+	G->arc[1][3] = 7;
+	G->arc[1][4] = 5;
+
+	G->arc[2][4] = 1;
+	G->arc[2][5] = 7;
+	G->arc[3][4] = 2;
+	G->arc[3][6] = 3;
+	G->arc[4][5] = 3;
+
+	G->arc[4][6] = 6;
+	G->arc[4][7] = 9;
+	G->arc[5][7] = 5;
+	G->arc[6][7] = 2;
+	G->arc[6][8] = 7;
+
+	G->arc[7][8] = 4;
 
 	//对称
 	for (i = 0; i < G->numNodes; i++)
@@ -97,8 +124,6 @@ int LocateVex(AMGraph G, VertexType u)
 	}
 	return -1;
 }
-
-boolean visited[MAXVEX];							/*访问标志数组*/
 
 /*邻接矩阵的深度优先遍历*/
 void DFS(AMGraph G, int i)						// i 表示起始顶点
@@ -261,14 +286,132 @@ void BFSTraverse(AMGraph G)
 	}
 }
 
+/*Dijkstra算法，求有向网G的v0到其余顶点的最短路径和长度*/
+/*P[v]的值为前驱顶点下标，D[v]表示v0到v的最短路径长度和*/
+void ShortPath_Dijkstra(AMGraph G, int v0, Patharc_D* P, ShortPathTable_D* D)
+{
+	int v, w, k, min;
+	int final[MAXVEX];				/*存储最短路径*/
+	for (v = 0; v < G.numNodes; v++)
+	{
+		final[v] = 0;				/*初始化为未知最短路径状态*/
+		(*D)[v] = G.arc[v0][v];		/*将与v0点有连线的顶点加上权值*/
+		(*P)[v] = -1;				/*初始化路径数组P为-1*/
+	}
+	(*D)[v0] = 0;					/*v0至v0为0*/
+	final[v0] = 1;
+
+	/*开始主循环，每次求得v0到某个顶点v的最短路径*/
+	for (v = 1; v < G.numNodes; v++)
+	{
+		min = INFINITY;				/*未知vo的最小路径*/
+		for (w = 0; w < G.numNodes; w++)
+		{
+			if (!final[w] && (*D)[w] < min)	/*寻找离v0最近的顶点*/
+			{
+				k = w;
+				min = (*D)[w];				/*w顶点离v0最近*/
+			}
+		}
+		final[k] = 1;						/*将目前找到的最近顶点置为1*/
+		for (w = 0; w < G.numNodes; w++)
+		{
+			/*如果经过v顶点的路径比现在这条路径长度短*/
+			if (!final[w] && (min + G.arc[k][w] < (*D)[w]))	/*说明找到了更短的路径，修改D和P*/
+			{
+				(*D)[w] = min + G.arc[k][w];
+				(*P)[w] = k;
+			}
+		}
+	}
+}
+
+/*Floyd算法，求网图G中各顶点v到其余顶点w的最短路径P[v][w]及带权长度D[v][w]*/
+void ShortestPath_Floyd(AMGraph G, Patharc_F* P, ShortPathTable_F* D)
+{
+	int v, w, k;
+	for (v = 0; v < G.numNodes; v++)
+	{
+		for (w = 0; w < G.numNodes; w++)
+		{
+			(*D)[v][w] = G.arc[v][w];		/*初始化D为对应权值*/
+			(*P)[v][w] = w;					/*初始化P*/
+		}
+	}
+
+	for (k = 0; k < G.numNodes; k++)
+	{
+		for (v = 0; v < G.numNodes; v++)
+		{
+			for (w = 0; w < G.numNodes; w++)
+			{
+				if ((*D)[v][w] > (*D)[v][k] + (*D)[k][w])	/*如果经过下标为k顶点的路径比原先两点的路径更短*/
+				{
+					(*D)[v][w] = (*D)[v][k] + (*D)[k][w];	/*将当前两点间的权值设更小一个*/
+					(*P)[v][w] = (*P)[v][k];				/*路径设置为经过下标k的顶点*/
+				}
+			}
+		}
+	}
+}
+
 int main()
 {
+	int v, w, k;
 	AMGraph G;
 	CreateAMGraph(&G);
 
 	/*MiniSpanTree_Prim(G);*/
 
-	MiniSpanTree_Kruskal(G);
+	/*MiniSpanTree_Kruskal(G);*/
+
+	//Dijkstra算法
+	//int v0 = 0;
+	//Patharc_D P;
+	//ShortPathTable_D D; /* 求某点到其余各点的最短路径 */
+	//ShortPath_Dijkstra(G, v0, &P, &D);
+
+	//Floyd算法
+	Patharc_F P;
+	ShortPathTable_F D;
+	ShortestPath_Floyd(G, &P, &D);
+
+	printf("各顶点间最短路径如下:\n");
+	for (v = 0; v < G.numNodes; ++v)
+	{
+		for (w = v + 1; w < G.numNodes; w++)
+		{
+			printf("v%d-v%d weight: %d ", v, w, D[v][w]);
+			k = P[v][w];				/* 获得第一个路径顶点下标 */
+			printf(" path: %d", v);	/* 打印源点 */
+			while (k != w)				/* 如果路径顶点下标不是终点 */
+			{
+				printf(" -> %d", k);	/* 打印路径顶点 */
+				k = P[k][w];			/* 获得下一个路径顶点下标 */
+			}
+			printf(" -> %d\n", w);	/* 打印终点 */
+		}
+		printf("\n");
+	}
+
+	printf("最短路径D\n");
+	for (v = 0; v < G.numNodes; ++v)
+	{
+		for (w = 0; w < G.numNodes; ++w)
+		{
+			printf("%d\t", D[v][w]);
+		}
+		printf("\n");
+	}
+	printf("最短路径P\n");
+	for (v = 0; v < G.numNodes; ++v)
+	{
+		for (w = 0; w < G.numNodes; ++w)
+		{
+			printf("%d ", P[v][w]);
+		}
+		printf("\n");
+	}
 
 	return 0;
 }

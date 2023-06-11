@@ -21,6 +21,7 @@ typedef int SElemType;			/*int*/
 typedef char TElemtype;			/*char*/
 typedef char VertexType;		/*图顶点类型(char)*/
 typedef int EdgeType;			/*图权值类型(int)*/
+typedef int KeyType;			/*查找关键字类型(int)*/
 
 typedef int boolean;			/*为布尔类型，值为FALSE或TRUE*/
 typedef int Status;				/*int*/

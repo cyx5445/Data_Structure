@@ -34,6 +34,9 @@
     <Filter Include="源文件\图">
       <UniqueIdentifier>{6b337872-c24d-4aae-bf71-5da38c34e1a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\查找">
+      <UniqueIdentifier>{13f7b398-eedd-463e-9269-43a3a4d2e587}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
@@ -101,6 +104,15 @@
     </ClCompile>
     <ClCompile Include="ALGraph_1.c">
       <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="拓扑排序.c">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="静态查找.c">
+      <Filter>源文件\查找</Filter>
+    </ClCompile>
+    <ClCompile Include="动态查找.c">
+      <Filter>源文件\查找</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

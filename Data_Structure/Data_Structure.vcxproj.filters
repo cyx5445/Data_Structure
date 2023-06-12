@@ -37,6 +37,9 @@
     <Filter Include="源文件\查找">
       <UniqueIdentifier>{13f7b398-eedd-463e-9269-43a3a4d2e587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\排序">
+      <UniqueIdentifier>{5247027b-d010-45a2-806e-2b6ded78f3e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_6_4.c">
@@ -113,6 +116,18 @@
     </ClCompile>
     <ClCompile Include="动态查找.c">
       <Filter>源文件\查找</Filter>
+    </ClCompile>
+    <ClCompile Include="平衡二叉树.c">
+      <Filter>源文件\查找</Filter>
+    </ClCompile>
+    <ClCompile Include="散列表查找.c">
+      <Filter>源文件\查找</Filter>
+    </ClCompile>
+    <ClCompile Include="插入排序.c">
+      <Filter>源文件\排序</Filter>
+    </ClCompile>
+    <ClCompile Include="交换排序.c">
+      <Filter>源文件\排序</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

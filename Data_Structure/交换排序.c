@@ -63,19 +63,62 @@ void BubbleSort2(SqList* L)
 	}
 }
 
-/*简单选择排序*/
-void SelectSort(SqList* L)
+int Partition(SqList* L, int low, int high)
 {
-	int i, j, min;
-	for (i = 1; i <= L->length; i++)
+	int pivotkey;
+	/*改进算法(三数取中法)*/
+	int m = low + (high - low) / 2;	/*取中间元素下标*/
+	if (L->r[low] > L->r[high])
+		swap(L, low, high);
+	if (L->r[m] > L->r[high])
+		swap(L, high, m);
+	if (L->r[m] > L->r[low])
+		swap(L, m, low);
+	pivotkey = L->r[low];
+	L->r[0] = pivotkey;
+
+	while (low < high)
 	{
-		min = 1;							/*定义最小下标*/
-		for (j = i + 1; j <= L->length; j++)
-		{
-			if (L->r[min] > L->r[j])
-				min = j;
-		}
-		if (i != min)
-			swap(L, i, min);
+		while (low < high && L->r[high] >= pivotkey)
+			high--;
+		L->r[low] = L->r[high];
+		//swap(L, low, high);		/*将比枢轴记录小的记录交换到较低端*/
+		while (low < high && L->r[low] <= pivotkey)
+			low++;
+		L->r[high] = L->r[low];
+		//swap(L, low, high);
+	}
+	L->r[low] = L->r[0];
+	return low;
+}
+
+void QSort(SqList* L, int low, int high)
+{
+	int pivot;		/*枢轴*/
+	if (low < high)
+	{
+		pivot = Partition(L, low, high);
+		QSort(L, low, pivot - 1);			/*对低子表递归排序*/
+		QSort(L, pivot + 1, high);			/*对高子表递归排序*/
 	}
 }
+
+/*快速排序*/
+void QuickSort(SqList* L)
+{
+	My_QSort(L, 1, L->length);
+}
+
+//int main()
+//{
+//	int d[9] = { 50,10,90,30,70,40,80,60,20 };
+//	SqList L;
+//	for (int i = 0; i < 9; i++)
+//	{
+//		L.r[i + 1] = d[i];
+//	}
+//	L.length = 9;
+//	QuickSort(&L);
+//
+//	return 0;
+//}

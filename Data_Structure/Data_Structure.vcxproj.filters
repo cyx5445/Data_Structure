@@ -129,9 +129,18 @@
     <ClCompile Include="交换排序.c">
       <Filter>源文件\排序</Filter>
     </ClCompile>
+    <ClCompile Include="选择排序.c">
+      <Filter>源文件\排序</Filter>
+    </ClCompile>
+    <ClCompile Include="归并排序.c">
+      <Filter>源文件\排序</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SqList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

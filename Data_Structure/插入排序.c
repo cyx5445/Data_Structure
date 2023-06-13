@@ -71,14 +71,14 @@ void ShellSort(SqList* L, int dk)
 	} while (increment > 1);
 }
 
-int main()
-{
-	SqList L;
-	int arr[] = { 0,2,1,3,4,6,9,7,5,8 };
-	L.length = sizeof(arr) / sizeof(int) - 1;
-	for (int i = 0; i <= L.length; i++)
-	{
-		L.r[i] = arr[i];
-	}
-	BubbleSort2(&L);
-}
+//int main()
+//{
+//	SqList L;
+//	int arr[] = { 0,2,1,3,4,6,9,7,5,8 };
+//	L.length = sizeof(arr) / sizeof(int) - 1;
+//	for (int i = 0; i <= L.length; i++)
+//	{
+//		L.r[i] = arr[i];
+//	}
+//	BubbleSort2(&L);
+//}
